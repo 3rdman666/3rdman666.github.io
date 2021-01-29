@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="刷题," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="日期1.11闰年判断给定一个年份，判断这一年是不是闰年。当以下情况之一满足时，这一年是闰年：1.年份是4的倍数而不是100的倍数；2.年份是400的倍数。其他的年份都不是闰年。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第一周习题">
+<meta property="og:url" content="http://example.com/2021/01/17/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%B9%A0%E9%A2%98/index.html">
+<meta property="og:site_name" content="3rdman666&#39;s Blog">
+<meta property="og:description" content="日期1.11闰年判断给定一个年份，判断这一年是不是闰年。当以下情况之一满足时，这一年是闰年：1.年份是4的倍数而不是100的倍数；2.年份是400的倍数。其他的年份都不是闰年。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-01-17T09:43:32.000Z">
+<meta property="article:modified_time" content="2021-01-25T05:04:17.915Z">
+<meta property="article:author" content="3rdman666">
+<meta property="article:tag" content="刷题">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/01/17/第一周习题/"/>
+
+
+
+
+
+  <title>第一周习题 | 3rdman666's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">3rdman666's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/17/%E7%AC%AC%E4%B8%80%E5%91%A8%E4%B9%A0%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="3rdman666's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">第一周习题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-17T17:43:32+08:00">
+                2021-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="日期1-11"><a href="#日期1-11" class="headerlink" title="日期1.11"></a>日期1.11</h1><h2 id="闰年判断"><a href="#闰年判断" class="headerlink" title="闰年判断"></a>闰年判断</h2><p>给定一个年份，判断这一年是不是闰年。<br>当以下情况之一满足时，这一年是闰年：<br>1.年份是4的倍数而不是100的倍数；<br>2.年份是400的倍数。<br>其他的年份都不是闰年。</p>
+<a id="more"></a>
+
+<p>输入格式：<br>输入包含一个整数y，表示当前的年份。</p>
+<p>输出格式<br>输出一行，如果给定的年份是闰年，则输出yes，否则输出no。</p>
+<p>思路：利用逻辑判断符分两种情况，判断后返回结果</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int y;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;y);</span><br><span class="line">	if((y%4&#x3D;&#x3D;0&amp;&amp;y%100!&#x3D;0)||y%400&#x3D;&#x3D;0)</span><br><span class="line">	printf(&quot;yes&quot;);</span><br><span class="line">	else</span><br><span class="line">	printf(&quot;no&quot;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="01字串"><a href="#01字串" class="headerlink" title="01字串"></a>01字串</h2><p>对于长度为5位的一个01串，每一位都可能是0或1，一共有32种可能。它们的前几个是：</p>
+<p>00000</p>
+<p>00001</p>
+<p>00010</p>
+<p>00011</p>
+<p>00100</p>
+<p>请按从小到大的顺序输出这32种01串。</p>
+<p>思路：利用itoa函数将从0到32的循环转换成二进制字符串，并输出</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line">	for(i&#x3D;0;i&lt;32;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		char s[100];</span><br><span class="line">		itoa(i,s,2);</span><br><span class="line">		printf(&quot;%05s\n&quot;,s);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="日期1-12"><a href="#日期1-12" class="headerlink" title="日期1.12"></a>日期1.12</h1><h2 id="字母图形"><a href="#字母图形" class="headerlink" title="字母图形"></a>字母图形</h2><p>利用字母可以组成一些美丽的图形，下面给出了一个例子：</p>
+<p>ABCDEFG</p>
+<p>BABCDEF</p>
+<p>CBABCDE</p>
+<p>DCBABCD</p>
+<p>EDCBABC</p>
+<p>这是一个5行7列的图形，请找出这个图形的规律，并输出一个n行m列的图形。</p>
+<p>输入格式<br>输入一行，包含两个整数n和m，分别表示你要输出的图形的行数的列数。</p>
+<p>输出格式<br>输出n行，每个m个字符，为你的图形。</p>
+<p>思路：每一个位置的字母Ascll码都是行数与列数之差的绝对值，利用这个特征建立两层循环</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int m,n;</span><br><span class="line">    scanf(&quot;%d%d&quot;,&amp;n,&amp;m);</span><br><span class="line">    int i,j;</span><br><span class="line">    for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">         for(j&#x3D;0;j&lt;m;j++)</span><br><span class="line">         &#123;</span><br><span class="line">              printf(&quot;%c&quot;,65+abs(i-j)); </span><br><span class="line">         &#125;</span><br><span class="line">         printf(&quot;\n&quot;);</span><br><span class="line">    &#125; </span><br><span class="line">   return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="数列特征"><a href="#数列特征" class="headerlink" title="数列特征"></a>数列特征</h2><p>给出n个数，找出这n个数的最大值，最小值，和。</p>
+<p>输入格式<br>第一行为整数n，表示数的个数。</p>
+<p>第二行有n个数，为给定的n个数，每个数的绝对值都小于10000。</p>
+<p>输出格式<br>输出三行，每行一个整数。第一行表示这些数中的最大值，第二行表示这些数中的最小值，第三行表示这些数的和。</p>
+<p>思路：利用数组从下标为0开始遍历，找出最大最小值，然后用sum统计和</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;math.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    long long int n,i;</span><br><span class="line">    scanf(&quot;%lld&quot;,&amp;n);</span><br><span class="line">    long long int a[n];</span><br><span class="line">    for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">    scanf(&quot;%lld&quot;,&amp;a[i]);</span><br><span class="line">    long long int max&#x3D;a[0],min&#x3D;a[0],sum&#x3D;0;</span><br><span class="line">    for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">    	if(a[i]&gt;max)</span><br><span class="line">    	max&#x3D;a[i];</span><br><span class="line">    	if(a[i]&lt;min)</span><br><span class="line">    	min&#x3D;a[i];</span><br><span class="line">    	sum&#x3D;sum+a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%lld\n%lld\n%lld\n&quot;,max,min,sum);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="日期1-13"><a href="#日期1-13" class="headerlink" title="日期1.13"></a>日期1.13</h1><h2 id="查找整数"><a href="#查找整数" class="headerlink" title="查找整数"></a>查找整数</h2><p>给出一个包含n个整数的数列，问整数a在数列中的第一次出现是第几个。</p>
+<p>输入格式<br>第一行包含一个整数n。</p>
+<p>第二行包含n个非负整数，为给定的数列，数列中的每个数都不大于10000。</p>
+<p>第三行包含一个整数a，为待查找的数。</p>
+<p>输出格式<br>如果a在数列中出现了，输出它第一次出现的位置(位置从1开始编号)，否则输出-1。</p>
+<p>思路：利用数组从下标为0开始遍历，判断是否和整数相等，如果是，返回下标，如果没找到，返回-1</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n,i,x;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">	int a[n];</span><br><span class="line">	for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;x);</span><br><span class="line">	for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(a[i]&#x3D;&#x3D;x)</span><br><span class="line">		&#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if(i&#x3D;&#x3D;n)</span><br><span class="line">    &#123;</span><br><span class="line">    	printf(&quot;-1&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	printf(&quot;%d&quot;,i+1);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="杨辉三角形"><a href="#杨辉三角形" class="headerlink" title="杨辉三角形"></a>杨辉三角形</h2><p>杨辉三角形又称Pascal三角形，它的第i+1行是(a+b)i的展开式的系数。</p>
+<p>　　<br>它的一个重要性质是：三角形中的每个数字等于它两肩上的数字相加。</p>
+<p>　　<br>下面给出了杨辉三角形的前4行：</p>
+<p>　　<br>   1</p>
+<p>　　<br>  1 1</p>
+<p>　　<br> 1 2 1</p>
+<p>　　<br>1 3 3 1</p>
+<p>　　<br>给出n，输出它的前n行。</p>
+<p>输入格式<br>输入包含一个数n。</p>
+<p>输出格式<br>输出杨辉三角形的前n行。每一行从这一行的第一个数开始依次输出，中间使用一个空格分隔。请不要在前面输出多余的空格。</p>
+<p>思路：运用二维数组，先规定竖边和斜边都是1，然后每一个点都是上一个点与左上方的点之和</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int i,j,N;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;N); </span><br><span class="line">	int a[N][N];</span><br><span class="line">	for(i&#x3D;0;i&lt;N;i++)</span><br><span class="line">	a[i][i]&#x3D;a[i][0]&#x3D;1;</span><br><span class="line">	for(i&#x3D;2;i&lt;N;i++)</span><br><span class="line">	for(j&#x3D;1;j&lt;i;j++)</span><br><span class="line">	a[i][j]&#x3D;a[i-1][j]+a[i-1][j-1];</span><br><span class="line">	for(i&#x3D;0;i&lt;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		for(j&#x3D;0;j&lt;&#x3D;i;j++)</span><br><span class="line">		printf(&quot;%d &quot;,a[i][j]);</span><br><span class="line">		printf(&quot;\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0; 	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="日期1-14"><a href="#日期1-14" class="headerlink" title="日期1.14"></a>日期1.14</h1><h2 id="特殊的数字"><a href="#特殊的数字" class="headerlink" title="特殊的数字"></a>特殊的数字</h2><p>153是一个非常特殊的数，它等于它的每位数字的立方和，即153=1<em>1</em>1+5<em>5</em>5+3<em>3</em>3。编程求所有满足这种条件的三位十进制数。</p>
+<p>按从小到大的顺序输出满足条件的三位十进制数，每个数占一行。</p>
+<p>思路：从100到999开始循环，提取出来每个数位并计算是否满足题目条件</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int i,a,b,c,j;</span><br><span class="line">	for(i&#x3D;100;i&lt;1000;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		j&#x3D;i;</span><br><span class="line">        a&#x3D;j%10;</span><br><span class="line">        j&#x3D;j&#x2F;10;</span><br><span class="line">        b&#x3D;j%10;</span><br><span class="line">        c&#x3D;j&#x2F;10;</span><br><span class="line">        if(i&#x3D;&#x3D;a*a*a+b*b*b+c*c*c)</span><br><span class="line">        printf(&quot;%d\n&quot;,i);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="回文数"><a href="#回文数" class="headerlink" title="回文数"></a>回文数</h2><p>1221是一个非常特殊的数，它从左边读和从右边读是一样的，编程求所有这样的四位十进制数。<br>输出格式<br>　　按从小到大的顺序输出满足条件的四位十进制数。</p>
+<p>思路：把四位数分别提取出来判断</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int i,a,b,c,d,j;</span><br><span class="line">	for(i&#x3D;1000;i&lt;10000;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		j&#x3D;i;</span><br><span class="line">        a&#x3D;j%10;</span><br><span class="line">        j&#x3D;j&#x2F;10;</span><br><span class="line">        b&#x3D;j%10;</span><br><span class="line">        j&#x3D;j&#x2F;10;</span><br><span class="line">        c&#x3D;j%10;</span><br><span class="line">        d&#x3D;j&#x2F;10;</span><br><span class="line">        if(a&#x3D;&#x3D;d&amp;&amp;b&#x3D;&#x3D;c)</span><br><span class="line">        printf(&quot;%d\n&quot;,i);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="日期1-15"><a href="#日期1-15" class="headerlink" title="日期1.15"></a>日期1.15</h1><h2 id="特殊回文数"><a href="#特殊回文数" class="headerlink" title="特殊回文数"></a>特殊回文数</h2><p>123321是一个非常特殊的数，它从左边读和从右边读是一样的。</p>
+<p>输入一个正整数n， 编程求所有这样的五位和六位十进制数，满足各位数字之和等于n 。</p>
+<p>输入格式<br>　　输入一行，包含一个正整数n。</p>
+<p>输出格式<br>　　按从小到大的顺序输出满足条件的整数，每个整数占一行。</p>
+<p>思路：提取每位数判断</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main ()</span><br><span class="line">&#123;</span><br><span class="line">	int a,b,c,d,e,f;</span><br><span class="line">	int flag&#x3D;0;</span><br><span class="line">	int n;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">	int i;</span><br><span class="line">	for(i&#x3D;10000;i&lt;999999;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if(i&#x2F;100000&#x3D;&#x3D;0)</span><br><span class="line">		&#123;</span><br><span class="line">			a&#x3D;i%10;</span><br><span class="line">		    b&#x3D;((i-a)&#x2F;10)%10;</span><br><span class="line">			c&#x3D;((((i-a)&#x2F;10)-b)&#x2F;10)%10;</span><br><span class="line">			d&#x3D;((((((i-a)&#x2F;10)-b)&#x2F;10)-c)&#x2F;10)%10;</span><br><span class="line">			e&#x3D;((((((((i-a)&#x2F;10)-b)&#x2F;10)-c)&#x2F;10)-d)&#x2F;10)%10;</span><br><span class="line">			int sum&#x3D; a*10000+b*1000+c*100+d*10+e*1;</span><br><span class="line">			if(sum&#x3D;&#x3D;i &amp;&amp; a+b+c+d+e&#x3D;&#x3D;n)</span><br><span class="line">			&#123;</span><br><span class="line">		  		printf(&quot;%d\n&quot;,sum);</span><br><span class="line">		  		</span><br><span class="line">    		&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			a&#x3D;i%10;</span><br><span class="line">			b&#x3D;((i-a)&#x2F;10)%10;</span><br><span class="line">			c&#x3D;((((i-a)&#x2F;10)-b)&#x2F;10)%10;</span><br><span class="line">			d&#x3D;((((((i-a)&#x2F;10)-b)&#x2F;10)-c)&#x2F;10)%10;</span><br><span class="line">			e&#x3D;((((((((i-a)&#x2F;10)-b)&#x2F;10)-c)&#x2F;10)-d)&#x2F;10)%10;</span><br><span class="line">			f&#x3D;((((((((((i-a)&#x2F;10)-b)&#x2F;10)-c)&#x2F;10)-d)&#x2F;10)-e)&#x2F;10)%10;</span><br><span class="line">			int sum&#x3D; a*100000+b*10000+c*1000+d*100+e*10+f;</span><br><span class="line">			if(sum&#x3D;&#x3D;i &amp;&amp; a+b+c+d+e+f&#x3D;&#x3D;n)</span><br><span class="line">			&#123;</span><br><span class="line">		 		 printf(&quot;%d\n&quot;,sum);</span><br><span class="line">    		&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;   </span><br><span class="line">		</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="十进制转十六进制"><a href="#十进制转十六进制" class="headerlink" title="十进制转十六进制"></a>十进制转十六进制</h2><p>十六进制数是在程序设计时经常要使用到的一种整数的表示方式。它有0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F共16个符号，分别表示十进制数的0至15。十六进制的计数方法是满16进1，所以十进制数16在十六进制中是10，而十进制的17在十六进制中是11，以此类推，十进制的30在十六进制中是1E。<br>　　给出一个非负整数，将它表示成十六进制的形式。<br>输入格式<br>　　输入包含一个非负整数a，表示要转换的数。0&lt;=a&lt;=2147483647<br>输出格式<br>　　输出这个整数的16进制表示</p>
+<p>每次都对16取余，结果存入数组，直到除不下去，最后逆序输出数组</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	long int a,i,b[10000];</span><br><span class="line">	scanf(&quot;%ld&quot;,&amp;a);</span><br><span class="line">	if(a&gt;0)</span><br><span class="line">	&#123;</span><br><span class="line">	</span><br><span class="line">	for(i&#x3D;0;a!&#x3D;0;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		b[i]&#x3D;a%16;</span><br><span class="line">		a&#x3D;a&#x2F;16;</span><br><span class="line">	&#125;</span><br><span class="line">	for(--i;i&gt;&#x3D;0;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		if(b[i]&gt;9)</span><br><span class="line">		&#123;</span><br><span class="line">			switch(b[i])</span><br><span class="line">			&#123;</span><br><span class="line">				case 10:printf(&quot;A&quot;);break;</span><br><span class="line">				case 11:printf(&quot;B&quot;);break;</span><br><span class="line">				case 12:printf(&quot;C&quot;);break;</span><br><span class="line">				case 13:printf(&quot;D&quot;);break;</span><br><span class="line">				case 14:printf(&quot;E&quot;);break;</span><br><span class="line">				case 15:printf(&quot;F&quot;);break;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		printf(&quot;%d&quot;,b[i]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line">	else if(a&lt;0)</span><br><span class="line">&#123;</span><br><span class="line">		</span><br><span class="line">	for(i&#x3D;0;a!&#x3D;0;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		b[i]&#x3D;abs(a)%16;</span><br><span class="line">		a&#x3D;abs(a)&#x2F;16;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;-&quot;);</span><br><span class="line">	for(--i;i&gt;&#x3D;0;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		if(b[i]&gt;9)</span><br><span class="line">		&#123;</span><br><span class="line">			switch(b[i])</span><br><span class="line">			&#123;</span><br><span class="line">				case 10:printf(&quot;A&quot;);break;</span><br><span class="line">				case 11:printf(&quot;B&quot;);break;</span><br><span class="line">				case 12:printf(&quot;C&quot;);break;</span><br><span class="line">				case 13:printf(&quot;D&quot;);break;</span><br><span class="line">				case 14:printf(&quot;E&quot;);break;</span><br><span class="line">				case 15:printf(&quot;F&quot;);break;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		printf(&quot;%d&quot;,b[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">printf(&quot;0&quot;);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="日期1-16"><a href="#日期1-16" class="headerlink" title="日期1.16"></a>日期1.16</h1><h2 id="十六进制转十进制"><a href="#十六进制转十进制" class="headerlink" title="十六进制转十进制"></a>十六进制转十进制</h2><p>从键盘输入一个不超过8位的正的十六进制数字符串，将它转换为正的十进制数后输出。<br>　　注：十六进制数中的10~15分别用大写的英文字母A、B、C、D、E、F表示。</p>
+<p>思路：每位数对应相应的权重，计算出权重相加即可</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	char a[10000]&#x3D;&#123;0&#125;;</span><br><span class="line">	long long int i,b,sum&#x3D;0;</span><br><span class="line">	gets(a);</span><br><span class="line">	for(i&#x3D;0;a[i]!&#x3D;0;i++)</span><br><span class="line">	;</span><br><span class="line">	b&#x3D;i-1;</span><br><span class="line">	for(--i;i&gt;&#x3D;0;i--)</span><br><span class="line">	&#123;</span><br><span class="line">		switch(a[i])</span><br><span class="line">		&#123;</span><br><span class="line">			case &#39;0&#39;:sum&#x3D;sum+0*pow(16,b-i);break;	</span><br><span class="line">			case &#39;1&#39;:sum&#x3D;sum+1*pow(16,b-i);break;</span><br><span class="line">			case &#39;2&#39;:sum&#x3D;sum+2*pow(16,b-i);break;</span><br><span class="line">			case &#39;3&#39;:sum&#x3D;sum+3*pow(16,b-i);break;</span><br><span class="line">			case &#39;4&#39;:sum&#x3D;sum+4*pow(16,b-i);break;</span><br><span class="line">			case &#39;5&#39;:sum&#x3D;sum+5*pow(16,b-i);break;</span><br><span class="line">			case &#39;6&#39;:sum&#x3D;sum+6*pow(16,b-i);break;</span><br><span class="line">			case &#39;7&#39;:sum&#x3D;sum+7*pow(16,b-i);break;</span><br><span class="line">			case &#39;8&#39;:sum&#x3D;sum+8*pow(16,b-i);break;</span><br><span class="line">			case &#39;9&#39;:sum&#x3D;sum+9*pow(16,b-i);break;</span><br><span class="line">			case &#39;A&#39;:sum&#x3D;sum+10*pow(16,b-i);break;</span><br><span class="line">			case &#39;B&#39;:sum&#x3D;sum+11*pow(16,b-i);break;</span><br><span class="line">			case &#39;C&#39;:sum&#x3D;sum+12*pow(16,b-i);break;</span><br><span class="line">			case &#39;D&#39;:sum&#x3D;sum+13*pow(16,b-i);break;</span><br><span class="line">			case &#39;E&#39;:sum&#x3D;sum+14*pow(16,b-i);break;</span><br><span class="line">			case &#39;F&#39;:sum&#x3D;sum+15*pow(16,b-i);break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;%lld&quot;,sum);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数列排序"><a href="#数列排序" class="headerlink" title="数列排序"></a>数列排序</h2><p>给定一个长度为n的数列，将这个数列按从小到大的顺序排列。1&lt;=n&lt;=200<br>输入格式<br>　　第一行为一个整数n。<br>　　第二行包含n个整数，为待排序的数，每个整数的绝对值小于10000。<br>输出格式<br>　　输出一行，按从小到大的顺序输出排序后的数列。</p>
+<p>思路：选择排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int n,i,j,min,t;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">	int a[n];</span><br><span class="line">	for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">	for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		min&#x3D;i;</span><br><span class="line">		for(j&#x3D;i;j&lt;n;j++)</span><br><span class="line">		&#123;</span><br><span class="line">			if(a[j]&lt;a[min])</span><br><span class="line">			&#123;</span><br><span class="line">				t&#x3D;a[j];</span><br><span class="line">				a[j]&#x3D;a[min];</span><br><span class="line">				a[min]&#x3D;t;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">	printf(&quot;%d &quot;,a[i]);</span><br><span class="line">	getchar();</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%88%B7%E9%A2%98/" rel="tag"># 刷题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/19/Blog/" rel="prev" title="个人博客的搭建方法">
+                个人博客的搭建方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yourname" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-11"><span class="nav-number">1.</span> <span class="nav-text">日期1.11</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%B0%E5%B9%B4%E5%88%A4%E6%96%AD"><span class="nav-number">1.1.</span> <span class="nav-text">闰年判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#01%E5%AD%97%E4%B8%B2"><span class="nav-number">1.2.</span> <span class="nav-text">01字串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-12"><span class="nav-number">2.</span> <span class="nav-text">日期1.12</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E5%9B%BE%E5%BD%A2"><span class="nav-number">2.1.</span> <span class="nav-text">字母图形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%88%97%E7%89%B9%E5%BE%81"><span class="nav-number">2.2.</span> <span class="nav-text">数列特征</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-13"><span class="nav-number">3.</span> <span class="nav-text">日期1.13</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%95%B4%E6%95%B0"><span class="nav-number">3.1.</span> <span class="nav-text">查找整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="nav-number">3.2.</span> <span class="nav-text">杨辉三角形</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-14"><span class="nav-number">4.</span> <span class="nav-text">日期1.14</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E6%95%B0%E5%AD%97"><span class="nav-number">4.1.</span> <span class="nav-text">特殊的数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">回文数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-15"><span class="nav-number">5.</span> <span class="nav-text">日期1.15</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">5.1.</span> <span class="nav-text">特殊回文数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6"><span class="nav-number">5.2.</span> <span class="nav-text">十进制转十六进制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-16"><span class="nav-number">6.</span> <span class="nav-text">日期1.16</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E5%85%AD%E8%BF%9B%E5%88%B6%E8%BD%AC%E5%8D%81%E8%BF%9B%E5%88%B6"><span class="nav-number">6.1.</span> <span class="nav-text">十六进制转十进制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%88%97%E6%8E%92%E5%BA%8F"><span class="nav-number">6.2.</span> <span class="nav-text">数列排序</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">3rdman666</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
