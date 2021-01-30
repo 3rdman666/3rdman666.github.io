@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-center-atom.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="刷题," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="日期1.25点赞微博上有个“点赞”功能，你可以为你喜欢的博文点个赞表示支持。每篇博文都有一些刻画其特性的标签，而你点赞的博文的类型，也间接刻画了你的特性。本题就要求你写个程序，通过统计一个人点赞的纪录，分析这个人的特性。 输入格式：输入在第一行给出一个正整数N（≤1000），是该用户点赞的博文数量。随后N行，每行给出一篇被其点赞的博文的特性描述，格式为“K F1⋯F​K”，其中1≤K≤10，（i&#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三周习题">
+<meta property="og:url" content="http://example.com/2021/01/30/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%B9%A0%E9%A2%98/index.html">
+<meta property="og:site_name" content="3rdman666&#39;s Blog">
+<meta property="og:description" content="日期1.25点赞微博上有个“点赞”功能，你可以为你喜欢的博文点个赞表示支持。每篇博文都有一些刻画其特性的标签，而你点赞的博文的类型，也间接刻画了你的特性。本题就要求你写个程序，通过统计一个人点赞的纪录，分析这个人的特性。 输入格式：输入在第一行给出一个正整数N（≤1000），是该用户点赞的博文数量。随后N行，每行给出一篇被其点赞的博文的特性描述，格式为“K F1⋯F​K”，其中1≤K≤10，（i&#x3D;">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-01-30T09:43:32.000Z">
+<meta property="article:modified_time" content="2021-01-30T15:33:04.740Z">
+<meta property="article:author" content="3rdman666">
+<meta property="article:tag" content="刷题">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://example.com/2021/01/30/第三周习题/"/>
+
+
+
+
+
+  <title>第三周习题 | 3rdman666's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">3rdman666's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/30/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%B9%A0%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="3rdman666's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">第三周习题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-30T17:43:32+08:00">
+                2021-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%88%B7%E9%A2%98/" itemprop="url" rel="index">
+                    <span itemprop="name">刷题</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="日期1-25"><a href="#日期1-25" class="headerlink" title="日期1.25"></a>日期1.25</h1><h2 id="点赞"><a href="#点赞" class="headerlink" title="点赞"></a>点赞</h2><p>微博上有个“点赞”功能，你可以为你喜欢的博文点个赞表示支持。每篇博文都有一些刻画其特性的标签，而你点赞的博文的类型，也间接刻画了你的特性。本题就要求你写个程序，通过统计一个人点赞的纪录，分析这个人的特性。</p>
+<p>输入格式：<br>输入在第一行给出一个正整数N（≤1000），是该用户点赞的博文数量。随后N行，每行给出一篇被其点赞的博文的特性描述，格式为“K F1⋯F​K”，其中1≤K≤10，（i=1,⋯,K）是特性标签的编号，我们将所有特性标签从1到1000编号。数字间以空格分隔。</p>
+<p>输出格式：<br>统计所有被点赞的博文中最常出现的那个特性标签，在一行中输出它的编号和出现次数，数字间隔1个空格。如果有并列，则输出编号最大的那个。</p>
+<a id="more"></a>
+<p>思路：利用新变量存储最多次数的标签，遍历结束后输出</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n,k,a[1000],c[1000],i,j&#x3D;0,p;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    while(n--)</span><br><span class="line">    &#123;</span><br><span class="line">        scanf(&quot;%d&quot;,&amp;k);</span><br><span class="line">        for(i&#x3D;0; i&lt; k; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            scanf(&quot;%d&quot;,&amp;a[i]);</span><br><span class="line">            c[j]&#x3D;a[i];</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    p&#x3D;j;</span><br><span class="line">    int b[1000]&#x3D; &#123;0&#125;;</span><br><span class="line">    for(j&#x3D;0; j&lt;p; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(i&#x3D;0; i&lt;p; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            if(c[j]&#x3D;&#x3D;c[i])</span><br><span class="line">            &#123;</span><br><span class="line">                b[j]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    int index&#x3D;0,f&#x3D;0;</span><br><span class="line">    for(j&#x3D;0; j&lt;p; j++)</span><br><span class="line">    &#123;</span><br><span class="line">        if(b[j]&gt;&#x3D; b[index])</span><br><span class="line">        &#123;</span><br><span class="line">            if(b[j]&#x3D;&#x3D;b[index])</span><br><span class="line">            &#123;</span><br><span class="line">                if(c[j]&gt;c[index])</span><br><span class="line">                &#123;</span><br><span class="line">                    index&#x3D;j;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                b[index]&#x3D;b[j];</span><br><span class="line">                index&#x3D;j;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d %d&quot;,c[index],b[index]);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="人以群分"><a href="#人以群分" class="headerlink" title="人以群分"></a>人以群分</h2><p>社交网络中我们给每个人定义了一个“活跃度”，现希望根据这个指标把人群分为两大类，即外向型（outgoing，即活跃度高的）和内向型（introverted，即活跃度低的）。要求两类人群的规模尽可能接近，而他们的总活跃度差距尽可能拉开。</p>
+<p>输入格式：<br>输入第一行给出一个正整数N（2≤N≤10<br>​5<br>​​ ）。随后一行给出N个正整数，分别是每个人的活跃度，其间以空格分隔。题目保证这些数字以及它们的和都不会超过2<br>​31<br>​​ 。</p>
+<p>输出格式：<br>按下列格式输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Outgoing #: N1</span><br><span class="line">Introverted #: N2</span><br><span class="line">Diff &#x3D; N3</span><br></pre></td></tr></table></figure>
+<p>其中N1是外向型人的个数；N2是内向型人的个数；N3是两群人总活跃度之差的绝对值。</p>
+<p>思路：依次遍历，属于哪类人就统计加一</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int sum[100005];</span><br><span class="line">int main()&#123;</span><br><span class="line">	int n;</span><br><span class="line">	cin&gt;&gt;n;</span><br><span class="line">	int s&#x3D;0;</span><br><span class="line">	for(int i&#x3D;0;i&lt;n;i++)&#123;</span><br><span class="line">		cin&gt;&gt;sum[i];</span><br><span class="line">		s+&#x3D;sum[i];</span><br><span class="line">	&#125;</span><br><span class="line">	sort(sum+0,sum+n);</span><br><span class="line">	int out&#x3D;0,in&#x3D;0;</span><br><span class="line">		for(int i&#x3D;0;i&lt;n&#x2F;2;i++)&#123;</span><br><span class="line">			in+&#x3D;sum[i];</span><br><span class="line">		&#125;</span><br><span class="line">		for(int i&#x3D;n-1;i&gt;&#x3D;n&#x2F;2;i--)&#123;</span><br><span class="line">			out+&#x3D;sum[i];</span><br><span class="line">		&#125;</span><br><span class="line">		printf(&quot;Outgoing #: %d\nIntroverted #: %d\nDiff &#x3D; %d&quot;,n%2&#x3D;&#x3D;0? n&#x2F;2:n&#x2F;2+1,n&#x2F;2,out-in);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="日期1-26"><a href="#日期1-26" class="headerlink" title="日期1.26"></a>日期1.26</h1><h2 id="检查密码"><a href="#检查密码" class="headerlink" title="检查密码"></a>检查密码</h2><p>本题要求你帮助某网站的用户注册模块写一个密码合法性检查的小功能。该网站要求用户设置的密码必须由不少于6个字符组成，并且只能有英文字母、数字和小数点 .，还必须既有字母也有数字。</p>
+<p>输入格式：<br>输入第一行给出一个正整数 N（≤ 100），随后 N 行，每行给出一个用户设置的密码，为不超过 80 个字符的非空字符串，以回车结束。</p>
+<p>输出格式：<br>对每个用户的密码，在一行中输出系统反馈信息，分以下5种：</p>
+<p>如果密码合法，输出Your password is wan mei.；<br>如果密码太短，不论合法与否，都输出Your password is tai duan le.；<br>如果密码长度合法，但存在不合法字符，则输出Your password is tai luan le.；<br>如果密码长度合法，但只有字母没有数字，则输出Your password needs shu zi.；<br>如果密码长度合法，但只有数字没有字母，则输出Your password needs zi mu.。</p>
+<p>思路：运用判断语句<br>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    string s;</span><br><span class="line">    getchar();</span><br><span class="line">    int tag1&#x3D;0,tag2&#x3D;0,tag3&#x3D;0,tag4&#x3D;0;</span><br><span class="line">    while(n--)&#123;</span><br><span class="line">        getline(cin,s);</span><br><span class="line">          if(s.length()&lt;6)&#123;</span><br><span class="line">            cout&lt;&lt;&quot;Your password is tai duan le.&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">        for(int i&#x3D;0;i&lt;s.length();i++)&#123;</span><br><span class="line">            if(s[i]&gt;&#x3D;&#39;0&#39;&amp;&amp;s[i]&lt;&#x3D;&#39;9&#39;)&#123;</span><br><span class="line">                tag1&#x3D;1;</span><br><span class="line">            &#125;</span><br><span class="line">            else if((s[i]&gt;&#x3D;&#39;a&#39;&amp;&amp;s[i]&lt;&#x3D;&#39;z&#39;)||(s[i]&gt;&#x3D;&#39;A&#39;&amp;&amp;s[i]&lt;&#x3D;&#39;Z&#39;))&#123;</span><br><span class="line">                tag2&#x3D;1;</span><br><span class="line">            &#125;</span><br><span class="line">            else if(s[i]&#x3D;&#x3D;&#39;.&#39;)&#123;</span><br><span class="line">                tag3&#x3D;1;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                tag4&#x3D;1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      if(tag4&#x3D;&#x3D;1)&#123;</span><br><span class="line">            cout&lt;&lt;&quot;Your password is tai luan le.&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;else if(tag2&#x3D;&#x3D;1&amp;&amp;tag1&#x3D;&#x3D;0)&#123;</span><br><span class="line">            cout&lt;&lt;&quot;Your password needs shu zi.&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;else if(tag1&#x3D;&#x3D;1&amp;&amp;tag2&#x3D;&#x3D;0)&#123;</span><br><span class="line">            cout&lt;&lt;&quot;Your password needs zi mu.&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            cout&lt;&lt;&quot;Your password is wan mei.&quot;&lt;&lt;endl;</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        tag1&#x3D;0,tag2&#x3D;0,tag3&#x3D;0,tag4&#x3D;0;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="谷歌招聘"><a href="#谷歌招聘" class="headerlink" title="谷歌招聘"></a>谷歌招聘</h2><p>2004 年 7 月，谷歌在硅谷的 101 号公路边竖立了一块巨大的广告牌（如下图）用于招聘。内容超级简单，就是一个以 .com 结尾的网址，而前面的网址是一个 10 位素数，这个素数是自然常数 e 中最早出现的 10 位连续数字。能找出这个素数的人，就可以通过访问谷歌的这个网站进入招聘流程的下一步。</p>
+<p>自然常数 e 是一个著名的超越数，前面若干位写出来是这样的：e = 2.718281828459045235360287471352662497757247093699959574966967627724076630353547594571382178525166427427466391932003059921… 其中粗体标出的 10 位数就是答案。</p>
+<p>本题要求你编程解决一个更通用的问题：从任一给定的长度为 L 的数字中，找出最早出现的 K 位连续数字所组成的素数。</p>
+<p>输入格式：<br>输入在第一行给出 2 个正整数，分别是 L（不超过 1000 的正整数，为数字长度）和 K（小于 10 的正整数）。接下来一行给出一个长度为 L 的正整数 N。</p>
+<p>输出格式：<br>在一行中输出 N 中最早出现的 K 位连续数字所组成的素数。如果这样的素数不存在，则输出 404。注意，原始数字中的前导零也计算在位数之内。例如在 200236 中找 4 位素数，0023 算是解；但第一位 2 不能被当成 0002 输出，因为在原始数字中不存在这个 2 的前导零。</p>
+<p>思路：把数字当作数组，然后每几位一组向后处理</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">bool isPrime(int n) &#123;</span><br><span class="line">    if (n &#x3D;&#x3D; 0 || n &#x3D;&#x3D; 1) return false;</span><br><span class="line">    for (int i &#x3D; 2; i * i &lt;&#x3D; n; i++)</span><br><span class="line">        if (n % i &#x3D;&#x3D; 0) return false;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">    int l, k;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; l &gt;&gt; k &gt;&gt; s;</span><br><span class="line">    for (int i &#x3D; 0; i &lt;&#x3D; l - k; i++) &#123;</span><br><span class="line">        string t &#x3D; s.substr(i, k);</span><br><span class="line">        int num &#x3D; stoi(t);</span><br><span class="line">        if (isPrime(num)) &#123;</span><br><span class="line">            cout &lt;&lt; t;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; &quot;404\n&quot;;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="日期1-27"><a href="#日期1-27" class="headerlink" title="日期1.27"></a>日期1.27</h1><h2 id="神坛"><a href="#神坛" class="headerlink" title="神坛"></a>神坛</h2><p>在古老的迈瑞城，巍然屹立着 n 块神石。长老们商议，选取 3 块神石围成一个神坛。因为神坛的能量强度与它的面积成反比，因此神坛的面积越小越好。特殊地，如果有两块神石坐标相同，或者三块神石共线，神坛的面积为 0.000。</p>
+<p>长老们发现这个问题没有那么简单，于是委托你编程解决这个难题。</p>
+<p>输入格式：<br>输入在第一行给出一个正整数 n（3 ≤ n ≤ 5000）。随后 n 行，每行有两个整数，分别表示神石的横坐标、纵坐标（−10<br>​9<br>​​ ≤ 横坐标、纵坐标 &lt;10<br>​9<br>​​ ）。</p>
+<p>输出格式：<br>在一行中输出神坛的最小面积，四舍五入保留 3 位小数。</p>
+<p>思路：最优解利用动态规划<br>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits&#x2F;stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define ll long long</span><br><span class="line">  const int N&#x3D;5005;</span><br><span class="line">  </span><br><span class="line">  int n;</span><br><span class="line">  struct point&#x2F;&#x2F;存储点</span><br><span class="line">  &#123;</span><br><span class="line">      ll x,y;</span><br><span class="line"> &#125;p[N],c[N];</span><br><span class="line"> bool cmp(point a,point b)&#x2F;&#x2F;按顺时针排序</span><br><span class="line"> &#123;</span><br><span class="line">     return b.y*a.x&gt;b.x*a.y;</span><br><span class="line"> &#125;</span><br><span class="line"> int main()</span><br><span class="line"> &#123;</span><br><span class="line">     scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">     for(int i&#x3D;0;i&lt;n;i++)</span><br><span class="line">        scanf(&quot;%lld%lld&quot;,&amp;p[i].x,&amp;p[i].y);</span><br><span class="line">    ll ans&#x3D;1e18;</span><br><span class="line">     for(int i&#x3D;0;i&lt;n;i++)</span><br><span class="line">     &#123;</span><br><span class="line">         int k&#x3D;0;</span><br><span class="line">         for(int j&#x3D;0;j&lt;n;j++)</span><br><span class="line">         &#123;</span><br><span class="line">             if(i!&#x3D;j)</span><br><span class="line">            &#123;</span><br><span class="line">                c[k].x&#x3D;p[j].x-p[i].x;</span><br><span class="line">                c[k].y&#x3D;p[j].y-p[i].y;</span><br><span class="line">               k++;</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         sort(c,c+k,cmp);</span><br><span class="line">         for(int j&#x3D;1;j&lt;k;j++)</span><br><span class="line">             ans&#x3D;min(ans,abs(c[j].y*c[j-1].x-c[j].x*c[j-1].y));</span><br><span class="line">     &#125;</span><br><span class="line">     printf(&quot;%.3f&quot;,ans&#x2F;2.);</span><br><span class="line">     return 0;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<h1 id="日期1-28"><a href="#日期1-28" class="headerlink" title="日期1.28"></a>日期1.28</h1><h2 id="装睡"><a href="#装睡" class="headerlink" title="装睡"></a>装睡</h2><p>你永远叫不醒一个装睡的人 —— 但是通过分析一个人的呼吸频率和脉搏，你可以发现谁在装睡！医生告诉我们，正常人睡眠时的呼吸频率是每分钟15-20次，脉搏是每分钟50-70次。下面给定一系列人的呼吸频率与脉搏，请你找出他们中间有可能在装睡的人，即至少一项指标不在正常范围内的人。</p>
+<p>输入格式：<br>输入在第一行给出一个正整数N（≤10）。随后N行，每行给出一个人的名字（仅由英文字母组成的、长度不超过3个字符的串）、其呼吸频率和脉搏（均为不超过100的正整数）。</p>
+<p>输出格式：<br>按照输入顺序检查每个人，如果其至少一项指标不在正常范围内，则输出其名字，每个名字占一行。<br>思路：判断分组<br>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int N;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;N);</span><br><span class="line">	char name[15][5];</span><br><span class="line">	int b[15],h[15];</span><br><span class="line">	for(int i&#x3D;1;i&lt;&#x3D;N;i++)</span><br><span class="line">	&#123;</span><br><span class="line">		scanf(&quot;%s %d %d&quot;,name[i],&amp;b[i],&amp;h[i]);</span><br><span class="line">	 &#125; </span><br><span class="line">	 for(int i&#x3D;1;i&lt;&#x3D;N;i++)</span><br><span class="line">	 	if(b[i]&lt;15||b[i]&gt;20||h[i]&lt;50||h[i]&gt;70)</span><br><span class="line">	 	printf(&quot;%s\n&quot;,name[i]);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="日期1-29"><a href="#日期1-29" class="headerlink" title="日期1.29"></a>日期1.29</h1><h2 id="幸运彩票"><a href="#幸运彩票" class="headerlink" title="幸运彩票"></a>幸运彩票</h2><p>彩票的号码有 6 位数字，若一张彩票的前 3 位上的数之和等于后 3 位上的数之和，则称这张彩票是幸运的。本题就请你判断给定的彩票是不是幸运的。</p>
+<p>输入格式：<br>输入在第一行中给出一个正整数 N（≤ 100）。随后 N 行，每行给出一张彩票的 6 位数字。</p>
+<p>输出格式：<br>对每张彩票，如果它是幸运的，就在一行中输出 You are lucky!；否则输出 Wish you good luck.。</p>
+<p>思路：六位数对每一位数求值判断</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"># include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	int a,b,c,d,e,f,g,h;</span><br><span class="line">	scanf(&quot;%d&quot;,&amp;a);</span><br><span class="line">    for(b&#x3D;0;b&lt;a;b++)</span><br><span class="line">    &#123;</span><br><span class="line">    	scanf(&quot;%1d%1d%1d%1d%1d%1d&quot;,&amp;c,&amp;d,&amp;e,&amp;f,&amp;g,&amp;h);</span><br><span class="line">    	if(c+d+e&#x3D;&#x3D;f+g+h)</span><br><span class="line">    	&#123;</span><br><span class="line">    		printf(&quot;You are lucky!\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else</span><br><span class="line">		&#123;</span><br><span class="line">			printf(&quot;Wish you good luck.\n&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="字符删除"><a href="#字符删除" class="headerlink" title="字符删除"></a>字符删除</h2><p>给定一个全部由小写英文字母组成的字符串，允许你至多删掉其中 3 个字符，结果可能有多少种不同的字符串？</p>
+<p>输入格式：<br>输入在一行中给出全部由小写英文字母组成的、长度在区间 <code>[4, 10​6 ] </code>内的字符串。</p>
+<p>输出格式：<br>在一行中输出至多删掉其中 3 个字符后不同字符串的个数。</p>
+<p>思路：排列组合<br>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">long long dp[1000005][4];</span><br><span class="line">int main()&#123;</span><br><span class="line">    string ss;</span><br><span class="line">    cin&gt;&gt;ss;</span><br><span class="line">    dp[1][0]&#x3D;dp[1][1]&#x3D;1;</span><br><span class="line">    dp[0][2]&#x3D;dp[0][3]&#x3D;0;</span><br><span class="line">    int n&#x3D;int(ss.size());</span><br><span class="line">    for(int i&#x3D;2;i&lt;&#x3D;n;i++)&#123;</span><br><span class="line">        dp[i][0]&#x3D;1;</span><br><span class="line">        for(int j&#x3D;1;j&lt;&#x3D;3;j++)&#123;</span><br><span class="line">            dp[i][j]&#x3D;dp[i-1][j-1]+dp[i-1][j];</span><br><span class="line">            if(ss[i-1]&#x3D;&#x3D;ss[i-2]&amp;&amp;j&#x3D;&#x3D;1) dp[i][j]-&#x3D;1;</span><br><span class="line">            else if(ss[i-1]&#x3D;&#x3D;ss[i-2]&amp;&amp;j&#x3D;&#x3D;2) dp[i][j]-&#x3D;dp[i-2][1];</span><br><span class="line">            else if(ss[i-1]&#x3D;&#x3D;ss[i-2]&amp;&amp;j&#x3D;&#x3D;3) dp[i][j]-&#x3D;dp[i-2][2];</span><br><span class="line">            </span><br><span class="line">            if(i&gt;&#x3D;3&amp;&amp;ss[i-1]&#x3D;&#x3D;ss[i-3]&amp;&amp;ss[i-1]!&#x3D;ss[i-2]&amp;&amp;j&#x3D;&#x3D;2) dp[i][j]-&#x3D;1;</span><br><span class="line">            else if(i&gt;&#x3D;3&amp;&amp;ss[i-1]&#x3D;&#x3D;ss[i-3]&amp;&amp;ss[i-1]!&#x3D;ss[i-2]&amp;&amp;j&#x3D;&#x3D;3) dp[i][j]-&#x3D;dp[i-3][1];</span><br><span class="line">            </span><br><span class="line">            if(i&gt;&#x3D;4&amp;&amp;ss[i-1]&#x3D;&#x3D;ss[i-4]&amp;&amp;ss[i-1]!&#x3D;ss[i-2]&amp;&amp;ss[i-1]!&#x3D;ss[i-3]&amp;&amp;j&#x3D;&#x3D;3) dp[i][j]-&#x3D;1;</span><br><span class="line">            </span><br><span class="line">           &#x2F;&#x2F;printf(&quot;%lld &quot;,dp[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        &#x2F;&#x2F;printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;dp[n][0]+dp[n][1]+dp[n][2]+dp[n][3]&lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="日期1-30"><a href="#日期1-30" class="headerlink" title="日期1.30"></a>日期1.30</h1><h2 id="数字三角形"><a href="#数字三角形" class="headerlink" title="数字三角形"></a>数字三角形</h2><p>一个数字三角形。 请编一个程序计算从顶至底的某处的一条路<br>　　径，使该路径所经过的数字的总和最大。<br>　　●每一步可沿左斜线向下或右斜线向下走；<br>　　●1＜三角形行数≤100；<br>　　●三角形中的数字为整数0，1，…99；</p>
+<p>输入格式<br>　　文件中首先读到的是三角形的行数。</p>
+<p>　　接下来描述整个三角形<br>输出格式<br>　　最大总和（整数）<br>样例输入<br>5<br>7<br>3 8<br>8 1 0<br>2 7 4 4<br>4 5 2 6 5<br>样例输出<br>30</p>
+<p>思路：动态规划</p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#define max(x,y) (x&gt;y)?x:y</span><br><span class="line">int dp[100][100];</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    int i,j;</span><br><span class="line">    for(i&#x3D;0;i&lt;n;i++)</span><br><span class="line">        for(j&#x3D;0;j&lt;&#x3D;i;j++)</span><br><span class="line">            scanf(&quot;%d&quot;,&amp;dp[i][j]);</span><br><span class="line">    for(i&#x3D;n-2;i&gt;&#x3D;0;i--)</span><br><span class="line">        for(j&#x3D;0;j&lt;&#x3D;i;j++)</span><br><span class="line">            dp[i][j]+&#x3D;max(dp[i+1][j],dp[i+1][j+1]);</span><br><span class="line">    printf(&quot;%d\n&quot;,dp[0][0]);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="P0505"><a href="#P0505" class="headerlink" title="P0505"></a>P0505</h2><p>一个整数n的阶乘可以写成n!，它表示从1到n这n个整数的乘积。阶乘的增长速度非常快，例如，13！就已经比较大了，已经无法存放在一个整型变量中；而35！就更大了，它已经无法存放在一个浮点型变量中。因此，当n比较大时，去计算n!是非常困难的。幸运的是，在本题中，我们的任务不是去计算n!，而是去计算n!最右边的那个非0的数字是多少。例如，5！=1<em>2</em>3<em>4</em>5=120，因此5!最右边的那个非0的数字是2。再如，7！=5040，因此7！最右边的那个非0的数字是4。再如，15！= 1307674368000，因此15！最右边的那个非0的数字是8。请编写一个程序，输入一个整数n(0&lt;n&lt;=100)，然后输出n!最右边的那个非0的数字是多少。<br>输入：<br>　　7<br>输出：<br>　　4</p>
+<p>思路：每次只保留最后一位非零数字，一旦发生改变就替换<br>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    long long int n;</span><br><span class="line">    int t&#x3D;1;</span><br><span class="line">    scanf(&quot;%lld&quot;,&amp;n);</span><br><span class="line">    for(int i&#x3D;1;i&lt;&#x3D;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        t*&#x3D;i;</span><br><span class="line">        while(t%10&#x3D;&#x3D;0)</span><br><span class="line">            t&#x2F;&#x3D;10;</span><br><span class="line">        t&#x3D;t%1000;</span><br><span class="line">    &#125;</span><br><span class="line">    t%&#x3D;10;</span><br><span class="line">    printf(&quot;%d\n&quot;,t);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%88%B7%E9%A2%98/" rel="tag"># 刷题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/29/C++%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/" rel="next" title="C++笔记-文件操作">
+                <i class="fa fa-chevron-left"></i> C++笔记-文件操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="" />
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yourname" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-25"><span class="nav-number">1.</span> <span class="nav-text">日期1.25</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%B9%E8%B5%9E"><span class="nav-number">1.1.</span> <span class="nav-text">点赞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%BA%E4%BB%A5%E7%BE%A4%E5%88%86"><span class="nav-number">1.2.</span> <span class="nav-text">人以群分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-26"><span class="nav-number">2.</span> <span class="nav-text">日期1.26</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E5%AF%86%E7%A0%81"><span class="nav-number">2.1.</span> <span class="nav-text">检查密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%B7%E6%AD%8C%E6%8B%9B%E8%81%98"><span class="nav-number">2.2.</span> <span class="nav-text">谷歌招聘</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-27"><span class="nav-number">3.</span> <span class="nav-text">日期1.27</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E5%9D%9B"><span class="nav-number">3.1.</span> <span class="nav-text">神坛</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-28"><span class="nav-number">4.</span> <span class="nav-text">日期1.28</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A3%85%E7%9D%A1"><span class="nav-number">4.1.</span> <span class="nav-text">装睡</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-29"><span class="nav-number">5.</span> <span class="nav-text">日期1.29</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B8%E8%BF%90%E5%BD%A9%E7%A5%A8"><span class="nav-number">5.1.</span> <span class="nav-text">幸运彩票</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E5%88%A0%E9%99%A4"><span class="nav-number">5.2.</span> <span class="nav-text">字符删除</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F1-30"><span class="nav-number">6.</span> <span class="nav-text">日期1.30</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="nav-number">6.1.</span> <span class="nav-text">数字三角形</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P0505"><span class="nav-number">6.2.</span> <span class="nav-text">P0505</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">3rdman666</span>
+
+  
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

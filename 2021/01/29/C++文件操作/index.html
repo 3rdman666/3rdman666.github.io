@@ -94,7 +94,7 @@
 <meta property="og:description" content="C++ 通过以下几个类支持文件的输入输出： ofstream: 写操作（输出）的文件类 (由ostream引申而来)ifstream: 读操作（输入）的文件类(由istream引申而来)fstream: 可同时读写操作的文件类 (由iostream引申而来)">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-01-29T15:43:32.000Z">
-<meta property="article:modified_time" content="2021-01-29T05:47:12.291Z">
+<meta property="article:modified_time" content="2021-01-30T14:52:55.840Z">
 <meta property="article:author" content="3rdman666">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -394,7 +394,7 @@
 <p>2、析取器(&gt;&gt;)<br>从流中输入数据。比如说系统有一个默认的标准输入流(cin)，一般情况下就是指的键盘，所以，cin&gt;&gt;x;就表示从标准输入流中读取一个指定类型(即变量x的类型)的数据。</p>
 <p>在C++中，对文件的操作是通过stream的子类fstream(file stream)来实现的，所以，要用这种方式操作文件，就必须加入头文件fstream.h。下面就把此类的文件操作过程一一道来。</p>
 <p>一、打开文件<br>在fstream类中，有一个成员函数open()，就是用来打开文件的，其原型是：</p>
-<p>void open(const char* filename,int mode,int access);</p>
+<p><code>void open(const char* filename,int mode,int access);</code></p>
 <p>参数：</p>
 <p>filename： 要打开的文件名<br>mode： 要打开文件的方式<br>access： 打开文件的属性<br>打开文件的方式在类ios(是所有流式I/O类的基类)中定义，常用的值如下：</p>
 <p>ios::app： 以追加的方式打开文件<br>ios::ate： 文件打开后定位到文件尾，ios:app就包含有此属性<br>ios::binary： 以二进制方式打开文件，缺省的方式是文本方式。两种方式的区别见前文<br>ios::in： 文件以输入方式打开<br>ios::out： 文件以输出方式打开<br>ios::nocreate： 不建立文件，所以文件不存在时打开失败<br>ios::noreplace：不覆盖文件，所以打开文件时如果文件存在失败<br>ios::trunc： 如果文件存在，把文件长度设为0<br>可以用“或”把以上属性连接起来，如ios::out|ios::binary</p>
@@ -468,6 +468,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/30/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%B9%A0%E9%A2%98/" rel="prev" title="第三周习题">
+                第三周习题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -548,7 +552,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
